@@ -1,0 +1,132 @@
+@mixin background-color {
+    background-color: rgba(color(primary), .6);
+}
+
+@mixin fontStyle($paddingleft: 0, $marginleft: 0) {   
+        &-heading {
+            font-size: size(lg);
+            font-weight: 380;
+            padding-bottom: 1rem;
+            padding-left: $paddingleft;
+            
+            @include responsive(lg) {
+                font-size: size(md) + .5rem;
+            }
+            
+            @include responsive(md) {
+                font-size: size(md) + .2rem;
+            }
+        }
+        
+        &-paragraph {
+            font-size: size(md);
+            font-weight: 150;
+            padding-bottom: 1rem;
+            padding-left: $paddingleft;
+            
+            @include responsive(lg) {
+                font-size: size(md) - .3rem;
+            }
+            
+            @include responsive(md) {
+                font-size: size(sm);
+            }
+        }
+    
+}
+
+@mixin flexPosition($justCont: center, $alignIte: center) {
+    display: flex;
+    justify-content: $justCont;
+    align-items: $alignIte;
+}
+
+
+@mixin button($marginleft: 0) {
+    
+    .container-link {
+        display: flex;
+        position: relative;
+        margin-left: $marginleft;
+        height: 2rem;
+        
+        &-div {
+            position: absolute;
+            left: 0;
+            width: 0rem;
+            height: 2rem;
+            background-color: color(secondary);
+            transition: all .2s;
+        }
+    }
+    
+    &-link {
+            position: absolute;
+            left: 0;
+            width: 10rem;
+            height: 2rem;
+            text-align: center;
+            font-size: size(sm);
+            font-weight: bold;
+            text-decoration: none;
+            color: color(quaternary);
+            border: .1rem solid color(quaternary);
+            padding: .5rem;
+            transition: all .2s;
+            z-index: 10;
+        
+    
+            
+            &:hover + .container-link-div {
+                width: 10rem;
+            }
+            
+        }
+}
+
+@mixin margin-input {
+    margin-top: .5rem;
+}
+
+@mixin padding-input {
+    padding-left: .5rem;
+}
+
+@mixin responsive($breakpoint) {
+    @if($breakpoint == xl) {
+        @media(max-width: 1550px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == lg) {
+        @media(max-width: 1450px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == md) {
+        @media(max-width: 1150px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == sm) {
+        @media(max-width: 1000px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == xs) {
+        @media(max-width: 750px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == xxs) {
+        @media(max-width: 550px) {
+            @content;
+        }
+    }
+    
+}

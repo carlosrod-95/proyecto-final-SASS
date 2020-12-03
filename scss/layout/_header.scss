@@ -1,0 +1,8 @@
+.header {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(min-content,1fr));
+    grid-template-rows: repeat(2, min-content); 
+    @include background-color;
+}

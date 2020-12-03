@@ -1,0 +1,150 @@
+.slideshow {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    border-bottom: .1rem solid color(quaternary);
+    @include background-color;
+    
+    @include responsive(lg) {
+                height: 50vh;
+            }
+    
+    @include responsive(md) {
+                height: 40vh;
+            }
+    
+    @include responsive(sm) {
+                height: 33vh;
+            }
+    
+    @include responsive(xs) {
+                height: 40vh;
+            }
+
+    
+    &-slide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+        animation: slideshow 20s linear infinite;
+        
+        @include responsive(sm) {
+                display: none;
+            }
+        
+    }
+    
+    &-content {
+        background-color: rgba(color(tertiary), .5);
+        position: absolute;
+        width: 20rem;
+        top: 2rem;
+        left: 2rem;
+        border-radius: .1rem;
+        padding: 1rem 2rem;
+        
+        @include responsive(lg) {
+                width: 18rem;
+        }
+        
+        @include responsive(md) {
+                width: 10rem;
+                height: 4rem;
+                text-align: center;
+        }
+        
+        & h2{
+            font-size: size(md);
+            font-family: 'Exo', sans-serif;
+        }
+        
+        & p{
+            font-size: size(sm);
+            font-weight: 350;
+            padding-top: .5rem;
+            
+            @include responsive(md) {
+                visibility: hidden;
+            }
+        }
+    }
+    
+    &-img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    &-text {
+        @include flexPosition(center, flex-start);
+        flex-direction: column;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding-right: 7rem;
+        @include fontStyle(7rem,7rem);
+        @include button(7rem);
+        
+        @include responsive(md) {
+                padding-right: 5rem;
+                @include fontStyle(5rem,5rem);
+                @include button(5rem);
+            }
+        
+        @include responsive(sm) {
+                width: 100%;
+                padding-right: 5rem;
+                @include fontStyle(5rem,5rem);
+                @include button(5rem);
+            }
+        
+        @include responsive(xxs) {
+                width: 100%;
+                padding-right: 1rem;
+                @include fontStyle(1rem,1rem);
+                @include button(1rem);
+            }
+    }
+}
+
+$animlist: 1 0s, 2 5s, 3 10s, 4 15s;
+
+@each $item in $animlist {
+    .slideshow-slide:nth-child(#{nth($item,1)}) {
+        animation-delay: nth($item,2);
+    }
+}
+
+@keyframes slideshow {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    
+    2% {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    23% {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    25% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

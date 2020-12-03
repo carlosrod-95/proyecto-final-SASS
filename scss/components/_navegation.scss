@@ -1,0 +1,47 @@
+.first-nav {
+    grid-column: 5 / 7;
+    grid-row: 1 / 2;
+    padding: 1.5rem;
+    
+    @include responsive(xl) {
+        grid-column: 4 / 7;
+    }
+    
+    @include responsive(sm) {
+        grid-column: 3 / 7;
+    }
+    
+    @include responsive(xxs) {
+        grid-column: 2 / 7;
+    }
+    
+    
+    &-list {
+        list-style: none;
+        @include flexPosition(space-between,none);
+    }
+    
+    &-link {
+        font-size: size(md);
+        font-weight: 200;
+        text-decoration: none;
+        color: color(quaternary);
+        transition: all .2s;
+        
+        @include responsive(md) {
+            font-size: size(md) - .3rem;
+        }
+        
+        @include responsive(sm) {
+            font-size: size(sm);
+        }
+        
+        @include responsive(xxs) {
+            font-size: size(xs) + .2rem;
+        }
+        
+        &:hover {
+            color: darken(color(secondary), 5%);
+        }
+    }
+}

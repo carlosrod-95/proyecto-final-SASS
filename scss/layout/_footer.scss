@@ -1,0 +1,200 @@
+.footer {
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+    width: 100%;
+
+    display: flex;
+    @include background-color;
+    
+    @include responsive(sm) {
+                height: 35vh;
+            }
+    
+    @include responsive(xs) {
+                height: 100%;
+                flex-direction: column;
+            }
+    
+    &-input{
+        width: 50%;
+        height: 40vh;
+        @include flexPosition(center,none);
+        flex-direction: column;
+        
+        
+        @include responsive(xs) {
+                width: 100%;
+                display: block;
+                padding-top: 2rem;
+                padding-bottom: 1rem;
+            }
+        
+        
+        &-group {
+            padding-left: 7rem;
+            display: flex;
+            flex-direction: column;
+            
+            @include responsive(md) {
+                padding-left: 5rem;
+            }
+            
+            @include responsive(xxs) {
+                padding-left: 1rem;
+            }
+            
+            input {
+                border-radius: .3rem;
+            }
+        }
+        
+        &-text {
+            width: 30%;
+            height: 1.5rem;
+            @include padding-input;
+            @include margin-input;
+            
+            @include responsive(sm) {
+                width: 7rem;
+            }
+        }
+        
+        &-email {
+            width: 40%;
+            height: 1.5rem;
+            @include padding-input;
+            @include margin-input;
+            
+            @include responsive(sm) {
+                width: 9rem;
+            }
+        }
+        
+        &-dudas {
+            width: 70%;
+            height: 6rem;
+            padding-bottom: 4rem;
+            @include padding-input;
+            @include margin-input;
+            
+            @include responsive(md) {
+                height: 4rem;
+                padding-bottom: 2rem;
+            }
+            
+            @include responsive(sm) {
+                width: 14rem;
+            }
+        }
+        
+        &-btn {
+            width: 4rem;
+            height: 1.5rem;
+            cursor: pointer;
+            transition: all .2s;
+            @include margin-input;
+            
+            @include responsive(md) {
+                width: 4rem;;
+            }
+            
+            &:hover {
+                    background-color: darken(color(secondary), 5%);
+                }
+        }
+        
+    }
+    
+    &-preguntas-header{
+        font-size: size(lg);
+        font-weight: 350;
+        padding-left: 7rem;
+        
+        @include responsive(lg) {
+                font-size: size(md) + .5rem;
+        }
+        
+        @include responsive(md) {
+                font-size: size(md) + .2rem;
+                padding-left: 5rem;
+        }
+        
+        @include responsive(xs) {
+                padding-left: 5rem;
+            }
+        
+        @include responsive(xxs) {
+                padding-left: 1rem;
+            }
+    }
+    
+    &-contact {
+        width: 50%;
+        @include flexPosition(flex-end,none);
+        padding-top: 4rem;
+        padding-right: 4rem;
+        
+        @include responsive(md) {
+                padding-top: 5rem;
+            }
+        
+        @include responsive(sm) {
+                padding-top: 1.5rem;
+            }
+        
+        @include responsive(xs) {
+                width: 100%;
+                display: block;
+                padding-top: 2rem;
+                padding-left: 5rem;
+                padding-bottom: 1rem;
+            }
+        
+        @include responsive(xxs) {
+                padding-left: 1rem;
+                padding-bottom: 1rem;
+            }
+        
+        &-header {
+            font-size: size(lg);
+            font-weight: 350;
+            
+            @include responsive(lg) {
+                font-size: size(md) + .5rem;
+            }
+            
+            @include responsive(md) {
+                font-size: size(md) + .2rem;
+            }
+        }
+        
+        &-list {
+            list-style: none;
+            
+            &-item {
+                padding-top: .5rem;      
+            }
+            
+            
+             &-link {
+                text-decoration: none;
+                font-size: size(md);
+                color: color(quaternary);
+                font-weight: 200;
+                transition: all .2s;
+                 
+                 @include responsive(lg) {
+                     font-size: size(md) - .2rem;
+                }
+                 
+                  @include responsive(md) {
+                     font-size: size(sm)
+                }
+                 
+                 &:hover {
+                    color: darken(color(secondary), 5%);
+                }
+            }
+        }
+    }
+}

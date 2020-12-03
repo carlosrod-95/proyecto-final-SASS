@@ -1,0 +1,119 @@
+.information {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: .1rem solid color(quaternary);
+    border-bottom: .1rem solid color(quaternary);
+    @include background-color;
+    
+    @include responsive(md) {
+                height: 35vh;
+            }
+    
+    @include responsive(sm) {
+                flex-direction: column;
+                height: 33vh;
+            }
+    
+    @include responsive(xs) {
+                height: 40vh;
+            }
+    
+    @include responsive(xs) {
+                height: 37vh;
+            }
+    
+    @include responsive(xxs) {
+                align-items: center;
+            }
+    
+    &-tickets{
+        height: 45vh;
+        width: 50%;
+        
+        @include responsive(sm) {
+                height: 15vh;
+            }
+        
+         @include responsive(sm) {
+                display: none;
+            }
+    }
+    
+    &-tickets-container {
+        position: relative;
+        width: 50vw;
+        height: 45vh;
+        @include flexPosition;
+        text-align: center;
+        
+        @include responsive(sm) {
+                height: 15vh;
+            }
+        
+    
+        &:hover .information-tickets-container-img {
+                opacity: .5;
+            }
+        
+        &:hover .information-tickets-container-link {
+                opacity: 1;
+                visibility: visible;
+                background-color: color(primary);
+            }
+        
+        &-img {
+            width: 40rem;
+            height: auto;
+            transition: opacity 1.5s;
+
+        }
+        
+        &-link {
+            position: absolute;
+            text-decoration: none;
+            color: color(quaternary);
+            border: .1rem solid color(quaternary);
+            padding: 1rem;
+            opacity: 0;
+            visibility: visible;
+            transition: all 1s;
+            
+            @include responsive(sm) {
+                padding: .5rem;
+                top: 5rem;
+            }
+        }
+        
+    }
+    
+    &-text {
+        padding-right: 5rem;
+        width: 50%;
+        height: 45vh;
+        @include flexPosition(center,none);
+        flex-direction: column;
+        @include fontStyle;
+        @include button;
+        
+        @include responsive(sm) {
+                width: 100%;
+                height: 50%;
+                padding-left: 5rem;
+                padding-top: 2.5rem;
+                display: block;
+            }
+        
+        @include responsive(xxs) {
+                width: 100%;
+                height: 50%;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                padding-top: 1rem;
+                display: block;
+            }
+    }   
+}
+    
